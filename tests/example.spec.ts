@@ -19,5 +19,5 @@ test('get started link', async ({ page }) => {
 
 test('open the page and verify that loads', async ({ page }) => {
   await page.goto('https://playground.bondaracademy.com/');
-  await expect(page.url()).toBe('https://playground.bondaracademy.com/pages/iot-dashboard.html');  
+  await expect(page).toHaveURL('https://playground.bondaracademy.com/pages/iot-dashboard');
 });
