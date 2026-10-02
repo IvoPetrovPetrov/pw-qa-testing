@@ -2,7 +2,7 @@ import { expect, test } from '@playwright/test';
 import { SidebarMenu } from '../UI/components/sidebar-menu';
 
 test.beforeEach(async ({ page }) => {
-  await page.goto('https://playground.bondaracademy.com/');
+  await page.goto('/');
 
 });
 

@@ -6,78 +6,83 @@
 
 A hands-on Playwright practice repository for building strong QA automation skills with JavaScript and TypeScript fundamentals.
 
-This project is intentionally small at the start and will grow through focused exercises covering reliable UI testing, test design, debugging, API testing, fixtures, and CI automation.
+This repository contains Playwright UI automation practice focused on test design, reusable page objects, debugging, and continuous integration.
 
 ## What This Project Covers
 
 - End-to-end browser testing with Playwright Test
 - Cross-browser execution in Chromium, Firefox, and WebKit
 - Accessible locators such as roles and visible page assertions
-- HTML test reports and trace collection on the first retry
+- HTML reports, failure screenshots, and traces retained for failed tests
 - Practical exercises based on public websites and test applications
+- A GitHub Actions workflow that runs the Chromium suite on pushes and pull requests to `main`
 
 ## Getting Started
 
 ### Prerequisites
 
-- Node.js 18 or newer
+- Node.js 20 or newer
 - npm
 
 ### Install
 
 ```bash
-npm install
+npm ci
 npx playwright install
 ```
 
 ### Run the tests
 
 ```bash
-# Run the complete suite
-npx playwright test
+# Run all configured browser projects
+npm test
+
+# Run the Chromium suite (also used by GitHub Actions)
+npm run test:chromium
 
 # Run tests in headed mode
-npx playwright test --headed
-
-# Run a specific browser project
-npx playwright test --project=chromium
+npm test -- --headed
 ```
 
 ### Review the report
 
 ```bash
-npx playwright show-report
+npm run report
 ```
 
-## Current Exercises
+The GitHub Actions workflow installs Chromium, runs `npm run test:chromium`, and uploads the HTML report as a workflow artifact, including when tests fail.
 
-The starter suite in `tests/example.spec.ts` currently validates:
+## Current Test Coverage
 
-1. The Playwright documentation page title
-2. Navigation from the Playwright documentation to the Installation page
-3. The initial route of the Bondar Academy IoT dashboard
+The test suites in `tests/` cover the Bondar Academy playground's datepicker, dialogs, footer, forms, IoT dashboard, main header, and sidebar navigation.
 
 ## Project Structure
 
 ```text
 .
+├── .github/
+│   └── workflows/
+│       └── playwright.yml     # Chromium tests on pushes and pull requests
+├── UI/
+│   ├── components/            # Reusable UI component objects
+│   └── pages/                 # Page objects
 ├── tests/
-│   └── example.spec.ts       # Browser scenarios and assertions
-├── playwright.config.ts      # Test runner and browser configuration
-├── package.json              # Project metadata and dependencies
-└── playwright-report/        # Generated HTML report
+│   └── *.spec.ts              # Browser scenarios and assertions
+├── playwright.config.ts       # Test runner and browser configuration
+├── package.json               # Project scripts and dependencies
+└── playwright-report/         # Generated HTML report (not committed)
 ```
 
 ## Learning Roadmap
 
-- [ ] Replace starter examples with focused test suites
-- [ ] Practice robust locators and page object models
+- [x] Replace starter examples with focused test suites
+- [x] Practice robust locators and page object models
 - [ ] Add test data and reusable fixtures
 - [ ] Cover forms, tables, dialogs, uploads, and network mocking
 - [ ] Add API testing with Playwright request fixtures
 - [ ] Improve negative and boundary-value coverage
-- [ ] Add linting, formatting, and useful npm scripts
-- [ ] Run the suite in GitHub Actions
+- [x] Add useful npm scripts
+- [x] Run the Chromium suite in GitHub Actions
 - [ ] Track flaky tests and improve test isolation
 
 ## Quality Principles

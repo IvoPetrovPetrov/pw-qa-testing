@@ -1,7 +1,7 @@
 import { expect, test } from '@playwright/test';
 
 test.beforeEach(async ({ page }) => {
-  await page.goto('https://playground.bondaracademy.com/');
+  await page.goto('/');
   await page.getByText('Forms').click();
   await page.getByText('Form Layouts').click();
 });
@@ -81,8 +81,8 @@ test('Assertion', async ({ page }) => {
 });
 
 test('testAuto', async ({ page }) => {
-  await page.goto('https://playground.bondaracademy.com/');
-  await page.goto('https://playground.bondaracademy.com/pages/iot-dashboard');
+  await page.goto('/');
+  await page.goto('/pages/iot-dashboard');
   await page.getByRole('link', { name: 'Forms' }).click();
   await page.getByRole('link', { name: 'Form Layouts' }).click();
   await page.getByRole('textbox', { name: 'Jane Doe' }).click();

@@ -3,7 +3,7 @@ import { NavigationPage } from '../UI/pages/navigation-page';
 import { FormLayoutsPage } from '../UI/pages/form-layouts-page';
 
 test.beforeEach(async ({ page }) => {
-  await page.goto('https://playground.bondaracademy.com/');
+  await page.goto('/');
 
 });
 
@@ -68,4 +68,3 @@ test('Submit the Horizontal form', async ({ page }) => {
     await formLayoutsPage.submitHorizontalForm('test1@test.com', 'welcome', true)
 
 })
-

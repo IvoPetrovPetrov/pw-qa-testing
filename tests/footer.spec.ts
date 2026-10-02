@@ -131,7 +131,6 @@ test('FTR-N01: ctrl-clicking each footer link still opens it in a new tab', {tag
             context.waitForEvent('page'),
             link.click({modifiers: ['ControlOrMeta']})
         ])
-        await newTab.waitForLoadState()
         await expect(newTab).not.toBeNull()
         await newTab.close()
     }
@@ -147,7 +146,6 @@ test('FTR-N02: clicking any footer link leaves the original tab unchanged', {tag
             context.waitForEvent('page'),
             link.click()
         ])
-        await newTab.waitForLoadState()
         await newTab.close()
 
         await expect(page).toHaveURL(urlBefore)

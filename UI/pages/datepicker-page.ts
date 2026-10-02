@@ -31,7 +31,7 @@ export class Datepicker {
     }
 
     async open(): Promise<void> {
-        await this.page.goto('https://playground.bondaracademy.com/pages/forms/datepicker');
+        await this.page.goto('/pages/forms/datepicker');
     }
 
     // The single and range calendars use different cell tags; every helper below
