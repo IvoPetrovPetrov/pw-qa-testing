@@ -3,7 +3,7 @@ import { NavigationPage } from '../UI/pages/navigation-page'
 import { DialogPage } from '../UI/pages/dialog-page';
 
 test.beforeEach(async ({ page }) => {
-  await page.goto('https://playground.bondaracademy.com/');
+  await page.goto('/');
 
 });
 
@@ -95,4 +95,3 @@ test('Close dialog with 10 seconds delay', async ({ page }) => {
     await dialogPage.closeDialogWithDelay()
     await expect(headerCard).toBeHidden()
 })
-

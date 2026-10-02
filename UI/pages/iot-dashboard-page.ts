@@ -37,7 +37,7 @@ export class IotDashboardPage {
     }
 
     async open(): Promise<void> {
-        await this.page.goto('https://playground.bondaracademy.com/pages/iot-dashboard');
+        await this.page.goto('/pages/iot-dashboard');
     }
 
     deviceCard(deviceName: DeviceName): Locator {

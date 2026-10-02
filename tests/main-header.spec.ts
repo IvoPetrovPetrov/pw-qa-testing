@@ -2,7 +2,7 @@ import { expect, test } from '@playwright/test';
 import { MainHeader, Theme } from '../UI/components/main-header';
 
 test.beforeEach(async ({ page }) => {
-    await page.goto('https://playground.bondaracademy.com/');
+    await page.goto('/');
 });
 
 const themeBodyClass: Record<Theme, RegExp> = {
