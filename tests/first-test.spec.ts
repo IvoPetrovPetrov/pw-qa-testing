@@ -1,4 +1,4 @@
-import { test } from '@playwright/test';
+import { expect, test } from '@playwright/test';
 
 test.beforeEach(async ({ page }) => {
   await page.goto('https://playground.bondaracademy.com/');
@@ -49,4 +49,46 @@ test('User visible locators', async ({page}) =>  {
   await page.getByTestId('inputEmail1').fill('MyTest')
 
   await page.getByTitle('IoT Dashboard').click()
+});
+
+test('Find child elements', async ({page}) =>  {
+  await page.locator('nb-card nb-radio-group :text-is("Option 1")').click()
+
+  await page.locator('nb-card').getByRole('button', {name: 'Sign in'}).first().click()
+});
+
+//Parent elements
+test('Find parent elements', async ({page}) =>  {
+  await page.locator('nb-card', {hasText: 'Using the Grid'}).getByRole('button').click()
+  await page.locator('nb-card', {has: page.locator ('#inputEmail1')}).getByRole('button').click()
+});
+
+//Reusing locators
+test('Reusing locators', async ({page}) =>  {
+  
+  const basicFormSection = page.locator('nb-card', {hasText: 'Basic form'})
+
+  await basicFormSection.getByLabel('Email').fill('TestQA1')
+  await basicFormSection.getByLabel('Password').fill('TestQA2')
+  await basicFormSection.locator('nb-checkbox').click()
+  await basicFormSection.getByRole('button').click()
+
+});
+
+test('Assertion', async ({ page }) => {
+  const value = 5
+  expect(value).toEqual(5)
+});
+
+test('testAuto', async ({ page }) => {
+  await page.goto('https://playground.bondaracademy.com/');
+  await page.goto('https://playground.bondaracademy.com/pages/iot-dashboard');
+  await page.getByRole('link', { name: 'Forms' }).click();
+  await page.getByRole('link', { name: 'Form Layouts' }).click();
+  await page.getByRole('textbox', { name: 'Jane Doe' }).click();
+  await page.getByRole('textbox', { name: 'Jane Doe' }).fill('test');
+  await page.locator('form').filter({ hasText: 'Remember meSubmit' }).getByPlaceholder('Email').fill('test1');
+  await page.locator('.custom-checkbox').first().click();
+  await page.locator('form').filter({ hasText: 'Remember meSubmit' }).getByLabel('Remember me').check();
+  await page.locator('form').filter({ hasText: 'Remember meSubmit' }).getByRole('button').click();
 });
