@@ -1,0 +1,8 @@
+{
+    "chat.tools.terminal.autoApprove": {
+        "/^npx playwright test tests/dialog-page\\.spec\\.ts -g \"Close template component\"$/": {
+            "approve": true,
+            "matchCommandLine": true
+        }
+    }
+}
