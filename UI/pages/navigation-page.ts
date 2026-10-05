@@ -2,7 +2,7 @@ import {Page} from '@playwright/test';
 import { SidebarMenu } from '../components/sidebar-menu';
 
 export class NavigationPage {
-
+    
     readonly page: Page
     readonly sidebarMenu: SidebarMenu
 
@@ -39,5 +39,10 @@ export class NavigationPage {
     async smartTablePage(){
         await this.sidebarMenu.openTablesAndData()
         await this.page.getByText('Smart Table').click()
+    }
+
+    async windowPage(){
+        await this.sidebarMenu.openModalAndOverlays()
+        await this.page.getByText('Window').click()
     }
 }
