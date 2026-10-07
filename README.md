@@ -4,18 +4,19 @@
 [![TypeScript](https://img.shields.io/badge/TypeScript-learning-3178c6?logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
 [![Status](https://img.shields.io/badge/status-in%20progress-f2c14e)](#learning-roadmap)
 
-A hands-on Playwright practice repository for building strong QA automation skills with JavaScript and TypeScript fundamentals.
+A hands-on Playwright practice repository for building strong QA automation skills with TypeScript, page object modeling, and user-facing browser testing.
 
-This repository contains Playwright UI automation practice focused on test design, reusable page objects, debugging, and continuous integration.
+This project focuses on practical UI automation against the Bondar Academy playground, with emphasis on test design, robust locators, debugging, and CI-friendly execution.
 
 ## What This Project Covers
 
-- End-to-end browser testing with Playwright Test
+- End-to-end browser testing with Playwright Test and TypeScript
 - Cross-browser execution in Chromium, Firefox, and WebKit
-- Accessible locators such as roles and visible page assertions
-- HTML reports, failure screenshots, and traces retained for failed tests
-- Practical exercises based on public websites and test applications
-- A GitHub Actions workflow that runs the Chromium suite on pushes and pull requests to `main`
+- Reusable page object patterns for UI flows
+- Robust, user-facing locators and assertion-based validation
+- HTML reports, screenshots, and trace retention for failed runs
+- GitHub Actions execution for the Chromium suite on pushes and pull requests to `main`
+- Practice scenarios based on test pages and public UI playgrounds
 
 ## Getting Started
 
@@ -50,11 +51,21 @@ npm test -- --headed
 npm run report
 ```
 
-The GitHub Actions workflow installs Chromium, runs `npm run test:chromium`, and uploads the HTML report as a workflow artifact, including when tests fail.
+The GitHub Actions workflow installs Chromium, runs `npm run test:chromium`, and uploads the HTML report as a workflow artifact, including on failed runs.
 
 ## Current Test Coverage
 
-The test suites in `tests/` cover the Bondar Academy playground's datepicker, dialogs, footer, forms, IoT dashboard, main header, and sidebar navigation.
+The automated suites in `tests/` currently cover a range of UI scenarios on the Bondar Academy playground, including:
+
+- datepicker interactions
+- dialog and modal behavior
+- footer validation
+- form layout checks
+- IoT dashboard assertions
+- main header navigation
+- popover behavior
+- sidebar menu interactions
+- window-based page scenarios
 
 ## Project Structure
 
@@ -66,11 +77,15 @@ The test suites in `tests/` cover the Bondar Academy playground's datepicker, di
 ├── UI/
 │   ├── components/            # Reusable UI component objects
 │   └── pages/                 # Page objects
+├── docs/                      # Project notes and supporting documentation
 ├── tests/
 │   └── *.spec.ts              # Browser scenarios and assertions
 ├── playwright.config.ts       # Test runner and browser configuration
 ├── package.json               # Project scripts and dependencies
-└── playwright-report/         # Generated HTML report (not committed)
+├── playwright-report/         # Generated HTML report (not committed)
+├── test-results/              # Generated test artifacts (not committed)
+├── README.md                  # Project overview and onboarding guide
+└── .gitignore                 # Ignored generated files
 ```
 
 ## Learning Roadmap
