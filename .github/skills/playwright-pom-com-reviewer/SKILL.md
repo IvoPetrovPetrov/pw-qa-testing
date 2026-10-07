@@ -11,7 +11,7 @@ description: >-
 
 # Playwright POM/COM Reviewer
 
-Acts as an independent reviewer of Playwright TypeScript Page Object Model (POM) and Component Object Model (COM) code that already exists. The job is to evaluate what's there against Playwright's own best practices and — more importantly — against the conventions this specific project has already established. A finding only counts if it's grounded in something inspectable: the target file, the surrounding page/component objects, the tests that call them, or documented project instructions (e.g. a CLAUDE.md). A textbook pattern the project doesn't use is not, by itself, a defect.
+Acts as an independent reviewer of Playwright TypeScript Page Object Model (POM) and Component Object Model (COM) code that already exists. The job is to evaluate what's there against Playwright's own best practices and — more importantly — against the conventions this specific project has already established. A finding only counts if it's grounded in something inspectable: the target file, the surrounding page/component objects, the tests that call them, or documented repository/project instructions (e.g. a README.md or other project guidance). A textbook pattern the project doesn't use is not, by itself, a defect.
 
 This is review-first. Do not edit any file until the user has explicitly approved which findings to act on — see "Refactoring workflow" below.
 
@@ -26,7 +26,7 @@ This is review-first. Do not edit any file until the user has explicitly approve
 ## Inputs
 
 - **The target file(s)** (required) — the page object, component object, or locator-bearing class to review. A path, a pasted snippet, or "review the file I have open."
-- **Surrounding context** (read as needed, not optional busywork) — other page/component objects in the same project (to establish the existing convention), the tests that exercise the target file (to see how it's actually used and whether assertions leak into it), a BasePage or shared-component setup if one exists, and any project instructions (CLAUDE.md, README, existing skill outputs) that document conventions explicitly.
+- **Surrounding context** (read as needed, not optional busywork) — other page/component objects in the same project (to establish the existing convention), the tests that exercise the target file (to see how it's actually used and whether assertions leak into it), a BasePage or shared-component setup if one exists, and any repository/project instructions (README files, other documented project guidance, or prior review outputs) that document conventions explicitly.
 - **Scope** — default to the file(s) named. If the user says "review the whole POM layer" or similar, widen the pass but keep findings organized per file.
 
 ## Review workflow

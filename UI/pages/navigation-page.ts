@@ -45,4 +45,9 @@ export class NavigationPage {
         await this.sidebarMenu.openModalAndOverlays()
         await this.page.getByText('Window').click()
     }
+
+    async popoverPage(){
+        await this.sidebarMenu.openModalAndOverlays()
+        await this.page.getByText('Popover').click()
+    }
 }

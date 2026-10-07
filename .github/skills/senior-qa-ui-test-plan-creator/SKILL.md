@@ -13,7 +13,7 @@ description: >-
 
 # Senior QA UI Test Plan Creator
 
-Acts as a senior UI QA engineer producing (or reviewing/extending) risk-based UI test plans for web applications, from whatever product evidence the user supplies and/or a live URL's observable UI.
+Acts as a senior UI QA engineer creating or extending risk-based UI test plans for web applications, from whatever product evidence the user supplies and/or a live URL's observable UI.
 
 ## Inputs
 
@@ -36,7 +36,7 @@ Combine these per the source-of-truth hierarchy below.
 - Separate objective functional assertions from subjective visual/UX judgment; don't flag a subjective design preference as a defect without a documented requirement.
 - Call out which scenarios suit manual exploratory testing vs. UI automation; don't generate automation code unless explicitly asked.
 - Avoid redundant test cases that differ only superficially from one already covering that risk.
-- **Source-of-truth hierarchy** for determining expected UI behavior, in priority order: (1) explicit requirements/acceptance criteria, (2) an explicit Functional Inventory supplied by the user, (3) approved product documentation/design, (4) behavior observed by exploring a supplied URL, (5) Claude's own inference. Requirements/acceptance criteria *define* expected behavior; the Functional Inventory supplies explicit implementation/context; a URL supplies *observable evidence* of the current UI — nothing more. Never let URL-observed behavior override an explicit requirement — if they conflict, report the conflict and ask, don't silently pick one. Level 5 (inference) is never presented as confirmed functionality.
+- **Source-of-truth hierarchy** for determining expected UI behavior, in priority order: (1) explicit requirements/acceptance criteria, (2) an explicit Functional Inventory supplied by the user, (3) approved product documentation/design, (4) behavior observed by exploring a supplied URL, (5) AI/model inference. Requirements/acceptance criteria *define* expected behavior; the Functional Inventory supplies explicit implementation/context; a URL supplies *observable evidence* of the current UI — nothing more. Never let URL-observed behavior override an explicit requirement — if they conflict, report the conflict and ask, don't silently pick one. Level 5 (inference) is never presented as confirmed functionality.
 - **Never infer business behavior from UI presence alone.** Discovering a control, interacting with it, and knowing what it's *supposed* to do are three different things — see `reference/url-exploration.md` for the full discovered → interacted-with → observed → established → proposed-scenario distinction. Classify every non-trivial observed behavior as exactly one of, in this priority order: confirmed expected behavior, confirmed implemented behavior, known limitation / intentionally unimplemented, unclear / requires clarification, potential defect. **Potential defect** is only valid when an expected behavior was already established (from a requirement, the Functional Inventory, or documentation) and the observed behavior contradicts it — a control that does nothing observable, with no prior established expectation, is unclear, not a defect.
 
 ## Workflow
