@@ -111,7 +111,7 @@ The automated suites in `tests/` currently cover a range of UI scenarios on the 
 
 ## Why This Repository Exists
 
-A practical, evolving portfolio of my journey deeper into QA automation. It documents not only passing tests, but also the reasoning behind test design, maintainability, debugging, and CI practices, not just passing tests.
+A practical, evolving portfolio of my journey deeper into QA automation. It documents the reasoning behind test design, maintainability, debugging, and CI practices, not just passing tests.
 
 ## Useful Links
 
