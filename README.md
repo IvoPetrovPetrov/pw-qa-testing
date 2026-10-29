@@ -17,6 +17,7 @@ This project focuses on practical UI automation against the Bondar Academy playg
 - HTML reports, screenshots, and trace retention for failed runs
 - GitHub Actions execution for the Chromium suite on pushes and pull requests to `main`
 - Practice scenarios based on test pages and public UI playgrounds
+- CI pushing and pulling request to the `main` runs the Chromium suite via GitHub actions and uploads the HTML report as a build artifact
 
 ## Getting Started
 
@@ -55,7 +56,7 @@ The GitHub Actions workflow installs Chromium, runs `npm run test:chromium`, and
 
 ## Current Test Coverage
 
-The automated suites in `tests/` currently cover a range of UI scenarios on the Bondar Academy playground, including:
+The automated suites in `tests/` currently cover a range of UI scenarios on the Bondar Academy playground, including 333 test in 10 files:
 
 - datepicker interactions
 - dialog and modal behavior
@@ -110,7 +111,7 @@ The automated suites in `tests/` currently cover a range of UI scenarios on the 
 
 ## Why This Repository Exists
 
-This is a public learning log and a practical portfolio of my journey deeper into QA automation. It documents not only passing tests, but also the reasoning behind test design, maintainability, debugging, and continuous improvement.
+A practical, evolving portfolio of my journey deeper into QA automation. It documents not only passing tests, but also the reasoning behind test design, maintainability, debugging, and CI practices, not just passing tests.
 
 ## Useful Links
 
